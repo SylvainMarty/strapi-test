@@ -5,7 +5,7 @@
       <div class="thumbnail" :style="{'background-image': 'url('+getImageUrl(p, 'thumbnail')+')'}"></div>
       <div class="content">
         <h1>{{ p.Name }}</h1>
-        <p>{{ p.Description }}</p>
+        <div v-html="md(p.Description)"></div>
         <p><a :href="p.GithubLink" target="_blank">GitHub</a></p>
       </div>
     </article>
@@ -14,6 +14,7 @@
 
 <script>
 import axios from 'axios'
+import marked from 'marked'
 
 export default {
   name: 'Project',
@@ -26,6 +27,8 @@ export default {
     this.fetchProjects()
   },
   methods: {
+    md: marked,
+
     async fetchProjects () {
       const { data } = await axios.get(`${process.env.VUE_APP_STRAPI_URL}/projects`)
       console.log(data)
@@ -37,7 +40,7 @@ export default {
         return ''
       }
       const url = coverImage.formats ? coverImage.formats[size].url : coverImage.url
-      return `http://localhost:1337${url}`
+      return `${process.env.VUE_APP_STRAPI_URL}${url}`
     }
   }
 }

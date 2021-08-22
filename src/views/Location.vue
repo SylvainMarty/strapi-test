@@ -34,8 +34,8 @@ export default {
       this.map = new mapboxgl.Map({
         container: 'map', // container ID
         style: 'mapbox://styles/mapbox/streets-v11', // style URL
-        center: [13.9100845, -66.5637859], // starting position [lng, lat]
-        zoom: 3 // starting zoom
+        center: [0.9658186, 30.6007512], // starting position [lng, lat]
+        zoom: 2 // starting zoom
       })
       this.locations.forEach(location => {
         new mapboxgl.Marker()
