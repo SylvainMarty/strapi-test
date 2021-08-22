@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     async fetchLocations () {
-      const { data } = await axios.get('http://localhost:1337/locations')
+      const { data } = await axios.get(`${process.env.VUE_APP_STRAPI_URL}/locations`)
       this.locations = data
       this.createMap()
     },

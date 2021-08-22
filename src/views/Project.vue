@@ -27,7 +27,7 @@ export default {
   },
   methods: {
     async fetchProjects () {
-      const { data } = await axios.get('http://localhost:1337/projects')
+      const { data } = await axios.get(`${process.env.VUE_APP_STRAPI_URL}/projects`)
       console.log(data)
       this.projects = data
     },

@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     async fetchLeisureCenters () {
-      const { data } = await axios.get('http://localhost:1337/leisure-centers')
+      const { data } = await axios.get(`${process.env.VUE_APP_STRAPI_URL}/leisure-centers`)
       console.log(data)
       this.leisureCenters = data
     }
