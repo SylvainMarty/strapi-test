@@ -9,7 +9,7 @@
 
 <script>
 import axios from 'axios'
-import marked from "marked";
+import marked from 'marked'
 
 export default {
   name: 'LeisureCenter',
